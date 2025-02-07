@@ -1,4 +1,6 @@
+import 'package:call_recorder_app/Screens/home_page.dart';
 import 'package:call_recorder_app/Themes/theme.dart';
+import 'package:call_recorder_app/navigator_observer.dart';
 import "package:flutter/material.dart";
 import 'package:call_recorder_app/Screens/display_screen.dart';
 import 'package:call_recorder_app/Providers/theme_provider.dart';
@@ -20,7 +22,12 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.themeMode,
       debugShowCheckedModeBanner: false,
-      home: const DisplayScreen(),
+      navigatorObservers: [MyRouteObserver()],
+      initialRoute: '/init',
+      routes: {
+        '/init': (context) => const DisplayScreen(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 

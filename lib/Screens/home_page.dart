@@ -1,21 +1,18 @@
-import 'package:flutter/material.dart';
 import 'package:call_recorder_app/Themes/theme.dart';
-import 'package:provider/provider.dart';
-import 'package:call_recorder_app/Providers/theme_provider.dart';
+import 'package:flutter/material.dart';
 
-class DisplayScreen extends StatelessWidget {
-  const DisplayScreen({
+class HomePage extends StatelessWidget {
+  const HomePage({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
-    // final themeProvider = Provider.of<AppThemeProvider>(context, listen: true);
-    final ThemeData currentTheme = Theme.of(context);
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: AppBackground.getWallpaper(),
+          const Center(
+            child: Text('Home Page'),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -26,11 +23,11 @@ class DisplayScreen extends StatelessWidget {
                 height: Heights.elevatedButtonHeight(context),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/init');
                   },
-                  style: currentTheme.elevatedButtonTheme.style,
+                  style: Theme.of(context).elevatedButtonTheme.style,
                   child: Text(
-                    'Get Started',
+                    'Back',
                     style: TextStyles.elevatedButtonText,
                   ),
                 ),
