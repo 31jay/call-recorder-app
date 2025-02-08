@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                 height: Heights.elevatedButtonHeight(context),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/init');
+                    Navigator.pushReplacementNamed(context, '/init');
                   },
                   style: Theme.of(context).elevatedButtonTheme.style,
                   child: Text(

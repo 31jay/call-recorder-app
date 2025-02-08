@@ -22,11 +22,27 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.themeMode,
       debugShowCheckedModeBanner: false,
+      restorationScopeId: 'app',
       navigatorObservers: [MyRouteObserver()],
       initialRoute: '/init',
-      routes: {
-        '/init': (context) => const DisplayScreen(),
-        '/home': (context) => const HomePage(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/init':
+            return MaterialPageRoute(
+              builder: (_) => const DisplayScreen(),
+              settings: settings,
+            );
+          case '/home':
+            return MaterialPageRoute(
+              builder: (_) => const HomePage(),
+              settings: settings,
+            );
+          default:
+            return MaterialPageRoute(
+              builder: (_) => const DisplayScreen(),
+              settings: settings,
+            );
+        }
       },
     );
   }

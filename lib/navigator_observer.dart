@@ -37,7 +37,7 @@ class MyRouteObserver extends NavigatorObserver {
   void printStack() {
     debugPrint("📌 Navigation Stack:");
     for (var route in _routeStack) {
-      debugPrint("➡️ ${route.settings.name}");
+      debugPrint("➡️ $route");
     }
   }
 }
