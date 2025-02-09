@@ -1,4 +1,5 @@
 import 'package:call_recorder_app/Screens/home_page.dart';
+import 'package:call_recorder_app/Screens/login_screen.dart';
 import 'package:call_recorder_app/Themes/theme.dart';
 import 'package:call_recorder_app/navigator_observer.dart';
 import "package:flutter/material.dart";
@@ -24,10 +25,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       navigatorObservers: [MyRouteObserver()],
-      initialRoute: '/init',
+      initialRoute: '/',
       onGenerateRoute: (settings) {
         switch (settings.name) {
-          case '/init':
+          case '/':
             return MaterialPageRoute(
               builder: (_) => const DisplayScreen(),
               settings: settings,
@@ -35,6 +36,11 @@ class MyApp extends StatelessWidget {
           case '/home':
             return MaterialPageRoute(
               builder: (_) => const HomePage(),
+              settings: settings,
+            );
+          case '/login':
+            return MaterialPageRoute(
+              builder: (_) => const LoginScreen(),
               settings: settings,
             );
           default:
